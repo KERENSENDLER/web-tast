@@ -1,0 +1,41 @@
+package Tests;
+
+import Pages.SearchResultsOnPages;
+import Pages.StartPageInstructions;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import java.io.IOException;
+
+import static org.testng.Assert.*;
+
+public class FirstVersionRequirementsTests extends StartPageInstructions {
+
+    @BeforeTest
+    @Override
+    public void setUp() {
+        super.setUp();}
+
+        @Test(priority = 1)
+        public void searchMag() {
+
+            //HomePageInstructions.searchInput("כוסות");
+            HomePageInstructions.searchInput();
+            HomePageInstructions.PIC();
+
+
+        }
+     @Test(priority = 2)
+      public void findPIC(){
+         SearchResults.SearchKirbolit();
+         assertNull(SearchResults.SearchKirbolit(), "כירבולית קורל פליז עם רקמה");
+     }
+
+
+    public void tearDown() throws IOException {
+            // utilities.screenshot();
+            super.tearDown();
+        }
+    }
+
