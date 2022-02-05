@@ -1,0 +1,20 @@
+package Pages;
+
+import UtilitiesServies.Utilities;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class SearchResultsOnPages {
+    WebDriver driver;
+    WebElement element;
+    Utilities utilities = new Utilities(driver);
+
+    @FindBy(xpath = "//h1[contains(text(),'כירבולית קורל פליז עם רקמה')]")
+WebElement Kirbolit;
+
+    public SearchResultsOnPages(WebDriver driver) {
+        this.driver = driver;
+    }
+    public WebElement SearchKirbolit(){return Kirbolit;}
+}
