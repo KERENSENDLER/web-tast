@@ -1,0 +1,37 @@
+package Pages;
+
+import Tests.FirstVersionRequirementsTests;
+import UtilitiesServies.Utilities;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import java.io.IOException;
+
+public class StartPageInstructions {
+    public WebDriver driver;
+    private String StartUrl;
+    public HomePageInstructions HomePageInstructions;
+    public SearchResultsOnPages SearchResults;
+    public Utilities utilities;
+
+    @BeforeTest
+    public void setUp(){
+        StartUrl = "https://www.lizard-gifts.com/";
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\selenum drivers\\chromedriver_win32\\chromedriver.exe");
+        driver = new ChromeDriver();
+        HomePageInstructions = new HomePageInstructions(driver);
+        SearchResults = new SearchResultsOnPages(driver);
+        utilities = new Utilities(driver);
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
+        driver.get(StartUrl);
+        System.out.println("It will be executed first");
+    }
+
+    @AfterTest
+    public void tearDown() throws IOException {
+        driver.quit();
+    }
+}
